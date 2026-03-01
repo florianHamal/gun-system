@@ -146,9 +146,50 @@ public class GunListener implements Listener {
         
         gun.setCurrentMagazineLoad(gun.getCurrentMagazineLoad() - 1);
         
-        Arrow arrow = player.launchProjectile(Arrow.class);
-        arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
-        arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
+        if (gun.isUseRaycast()) {
+            org.bukkit.Location start = player.getEyeLocation();
+            org.bukkit.util.Vector direction = start.getDirection().normalize();
+            double maxDistance = 300.0;
+            org.bukkit.entity.LivingEntity closestHit = null;
+            double closestDistance = maxDistance;
+            
+            for (double d = 0; d < maxDistance; d += 0.5) {
+                org.bukkit.Location particleLoc = start.clone().add(direction.clone().multiply(d));
+                player.getWorld().playEffect(particleLoc, getParticle(gun.getParticleType()), 1);
+            }
+            
+            for (org.bukkit.entity.Entity entity : player.getWorld().getEntities()) {
+                if (entity == player) continue;
+                if (!(entity instanceof org.bukkit.entity.LivingEntity)) continue;
+                
+                org.bukkit.entity.LivingEntity living = (org.bukkit.entity.LivingEntity) entity;
+                org.bukkit.Location entityLoc = living.getEyeLocation();
+                
+                double dx = entityLoc.getX() - start.getX();
+                double dy = entityLoc.getY() - start.getY();
+                double dz = entityLoc.getZ() - start.getZ();
+                org.bukkit.util.Vector toEntity = new org.bukkit.util.Vector(dx, dy, dz);
+                double dot = toEntity.dot(direction);
+                
+                if (dot <= 0) continue;
+                
+                org.bukkit.Location closestPoint = start.clone().add(direction.clone().multiply(dot));
+                double distance = closestPoint.distance(entityLoc);
+                
+                if (distance < 0.5 && dot < closestDistance) {
+                    closestDistance = dot;
+                    closestHit = living;
+                }
+            }
+            
+            if (closestHit != null) {
+                closestHit.damage(gun.getDamage(), player);
+            }
+        } else {
+            Arrow arrow = player.launchProjectile(Arrow.class);
+            arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
+            arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
+        }
         
         gun.setShootingDebounce(gun.getShootingSpeed());
         
@@ -193,6 +234,24 @@ public class GunListener implements Listener {
                     livingEntity.damage(damage);
                 }
             }
+        }
+    }
+
+    private org.bukkit.Effect getParticle(String particleName) {
+        String name = particleName.toUpperCase();
+        
+        //if (name.equals("RED_DUST")) name = "REDSTONE";
+        //if (name.equals("WATERDRIP")) name = "DRIP_WATER";
+        //if (name.equals("LAVADRIP")) name = "DRIP_LAVA";
+        //if (name.equals("SMOKE")) name = "SMOKE_NORMAL";
+        //if (name.equals("EXPLOSION")) name = "EXPLOSION_NORMAL";
+        //if (name.equals("MAGICCRIT")) name = "CRIT_MAGIC";
+        //if (name.equals("TILEBREAK") || name.equals("BLOCKCRACK")) name = "BLOCK_DUST";
+        
+        try {
+            return org.bukkit.Effect.valueOf(name);
+        } catch (IllegalArgumentException e) {
+            return org.bukkit.Effect.FLAME;
         }
     }
 }

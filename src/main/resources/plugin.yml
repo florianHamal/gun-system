@@ -5,4 +5,7 @@ author: Flori4n
 commands:
   creategun:
     description: Create a gun with custom stats
-    usage: /creategun <name> <magazineSize> <shootingSpeed> <reloadTime> <damage> <shootingDebounce> <reloadingDebounce>
+    usage: /creategun <name> <magazineSize> <shootingSpeed> <reloadTime> <damage> <shootingDebounce> <reloadingDebounce> <useRaycast> <particleType>
+  gunhelp:
+    description: Show available particle types
+    usage: /gunhelp

@@ -38,6 +38,7 @@ public class GunSystem extends JavaPlugin {
         getLogger().info("GunSystem enabled!");
         
         getCommand("creategun").setExecutor(new GunCommand());
+        getCommand("gunhelp").setExecutor(new GunCommand());
         
         getServer().getPluginManager().registerEvents(new GunListener(), this);
         
