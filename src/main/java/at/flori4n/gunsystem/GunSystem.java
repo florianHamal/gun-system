@@ -44,7 +44,6 @@ public class GunSystem extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                long currentTime = System.currentTimeMillis();
                 
                 for (Map.Entry<UUID, Gun> entry : playerGuns.entrySet()) {
                     UUID playerId = entry.getKey();
@@ -55,17 +54,9 @@ public class GunSystem extends JavaPlugin {
                     
                     if (remainingShooting < 0) remainingShooting = 0;
                     if (remainingReloading < 0) remainingReloading = 0;
-                    
+               
                     gun.setShootingDebounce(remainingShooting);
                     gun.setReloadingDebounce(remainingReloading);
-                    
-                    /*org.bukkit.entity.Player player = getServer().getPlayer(playerId);
-                    if (player != null) {
-                        org.bukkit.inventory.ItemStack item = player.getItemInHand();
-                        if (item != null && Gun.isGun(item)) {
-                            Gun.toItem(item, gun);
-                        }
-                    }*/
                 }
             }
         }.runTaskTimer(this, 1L, 1L);

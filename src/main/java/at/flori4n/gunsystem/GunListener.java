@@ -4,6 +4,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.block.Action;
 import org.bukkit.entity.Player;
@@ -11,11 +15,22 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.projectiles.ProjectileSource;
 
 import java.util.UUID;
 
 public class GunListener implements Listener {
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        UUID playerId = player.getUniqueId();
+        
+        ItemStack item = player.getItemInHand();
+        if (Gun.isGun(item) && GunSystem.getInstance().getPlayerGun(playerId) == null) {
+            Gun gun = Gun.fromItem(item);
+            GunSystem.getInstance().setPlayerGun(playerId, gun);
+        }
+    }
 
     @EventHandler
     public void onItemSwitch(PlayerItemHeldEvent event) {
@@ -38,6 +53,62 @@ public class GunListener implements Listener {
         if (Gun.isGun(currentItem)) {
             Gun gun = Gun.fromItem(currentItem);
             GunSystem.getInstance().setPlayerGun(playerId, gun);
+        }
+    }
+
+    @EventHandler
+    public void onDropItem(PlayerDropItemEvent event) {
+        Player player = event.getPlayer();
+        UUID playerId = player.getUniqueId();
+        ItemStack droppedItem = event.getItemDrop().getItemStack();
+        
+        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
+        
+        if (gun != null && Gun.isGun(droppedItem)) {
+            Gun.toItem(droppedItem, gun);
+            event.getItemDrop().setItemStack(droppedItem);
+            GunSystem.getInstance().removePlayerGun(playerId);
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (!(event.getWhoClicked() instanceof Player)) {
+            return;
+        }
+        
+        Player player = (Player) event.getWhoClicked();
+        UUID playerId = player.getUniqueId();
+        
+        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
+        
+        if (gun != null) {
+            ItemStack item = player.getItemInHand();
+            if (item != null) {
+                Gun.toItem(item, gun);
+                player.setItemInHand(item);
+                GunSystem.getInstance().removePlayerGun(playerId);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event) {
+        if (!(event.getPlayer() instanceof Player)) {
+            return;
+        }
+        
+        Player player = (Player) event.getPlayer();
+        UUID playerId = player.getUniqueId();
+        
+        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
+        
+        if (gun == null) {
+            ItemStack item = player.getItemInHand();
+            if (Gun.isGun(item)) {
+                Gun newGun = Gun.fromItem(item);
+                GunSystem.getInstance().setPlayerGun(playerId, newGun);
+            }
         }
     }
 
