@@ -107,4 +107,15 @@ public class Gun {
     public void setCurrentMagazineLoad(int load) { this.currentMagazineLoad = load; }
     public void setShootingDebounce(long debounce) { this.shootingDebounce = debounce; }
     public void setReloadingDebounce(long debounce) { this.reloadingDebounce = debounce; }
+    
+    public String getActionBarText() {
+        if (reloadingDebounce > 0) {
+            return "§c§lReloading...";
+        }
+        return "§a" + currentMagazineLoad + "§7/§f" + magazineSize;
+    }
+    
+    public void sendActionBar(Player player) {
+        GunSystem.sendActionBar(player, getActionBarText());
+    }
 }

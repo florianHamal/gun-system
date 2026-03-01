@@ -218,7 +218,7 @@ public class GunListener implements Listener {
             gun.setCurrentMagazineLoad(gun.getMagazineSize());
             gun.setReloadingDebounce(0);
             player.sendMessage("§aReloaded! Magazine full.");
-        }, gun.getReloadTime() / 50);
+        }, gun.getReloadTime());
     }
 
     @EventHandler
@@ -239,15 +239,6 @@ public class GunListener implements Listener {
 
     private org.bukkit.Effect getParticle(String particleName) {
         String name = particleName.toUpperCase();
-        
-        //if (name.equals("RED_DUST")) name = "REDSTONE";
-        //if (name.equals("WATERDRIP")) name = "DRIP_WATER";
-        //if (name.equals("LAVADRIP")) name = "DRIP_LAVA";
-        //if (name.equals("SMOKE")) name = "SMOKE_NORMAL";
-        //if (name.equals("EXPLOSION")) name = "EXPLOSION_NORMAL";
-        //if (name.equals("MAGICCRIT")) name = "CRIT_MAGIC";
-        //if (name.equals("TILEBREAK") || name.equals("BLOCKCRACK")) name = "BLOCK_DUST";
-        
         try {
             return org.bukkit.Effect.valueOf(name);
         } catch (IllegalArgumentException e) {
