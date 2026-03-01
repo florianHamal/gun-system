@@ -131,16 +131,13 @@ public class GunListener implements Listener {
 
     private void shoot(Player player, Gun gun) {
         if (gun.isShooting()) {
-            player.sendMessage("§cTo fast");
             return;
         }
         if (gun.isReloading()) {
-            player.sendMessage("§cStill reloading");
             return;
         }
         
         if (gun.getCurrentMagazineLoad() <= 0) {
-            player.sendMessage("§cOut of ammo! Right click to reload.");
             return;
         }
         
@@ -195,8 +192,6 @@ public class GunListener implements Listener {
         
         gun.setShootingDebounce(gun.getShootingSpeed());
         
-        player.sendMessage("§aBang! Ammo: " + gun.getCurrentMagazineLoad() + "/" + gun.getMagazineSize());
-        
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setShooting(false);
             gun.sendActionBar(player);
@@ -205,26 +200,21 @@ public class GunListener implements Listener {
 
     private void reload(Player player, Gun gun) {
         if (gun.isShooting()) {
-            player.sendMessage("§cTo fast");
             return;
         }
         if (gun.isReloading()) {
-            player.sendMessage("§cStill reloading");
             return;
         }        
         if (gun.getCurrentMagazineLoad() == gun.getMagazineSize()) {
-            player.sendMessage("§aMagazine already full!");
             return;
         }
         
         gun.setReloading(true);
         
-        player.sendMessage("§eReloading...");
         gun.sendActionBar(player);
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setCurrentMagazineLoad(gun.getMagazineSize());
             gun.setReloading(false);
-            player.sendMessage("§aReloaded! Magazine full.");
             gun.sendActionBar(player);
         }, gun.getReloadTime());
     }
