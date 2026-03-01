@@ -189,6 +189,7 @@ public class GunListener implements Listener {
             Arrow arrow = player.launchProjectile(Arrow.class);
             arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
             arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
+        gun.sendActionBar(player);
         }
         
         gun.setShootingDebounce(gun.getShootingSpeed());
@@ -213,7 +214,7 @@ public class GunListener implements Listener {
         gun.setReloadingDebounce(gun.getReloadTime());
         
         player.sendMessage("§eReloading...");
-        
+        gun.sendActionBar(player);
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setCurrentMagazineLoad(gun.getMagazineSize());
             gun.setReloadingDebounce(0);

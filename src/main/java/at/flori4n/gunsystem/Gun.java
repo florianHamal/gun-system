@@ -110,7 +110,7 @@ public class Gun {
     
     public String getActionBarText() {
         if (reloadingDebounce > 0) {
-            return "§c§lReloading...";
+            return "§c§lReloading..." + reloadingDebounce;
         }
         return "§a" + currentMagazineLoad + "§7/§f" + magazineSize;
     }
