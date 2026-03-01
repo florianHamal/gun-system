@@ -1,0 +1,34 @@
+This project is a minecraft 1.8 plugin for 
+The vision for the plugin is that it adds guns to a minecraft server.
+
+1) A gun should have this stats:
+    - magazine size
+    - current magazine load
+    - shooting speed 
+    - reload time 
+    - damage
+    - name
+    - shooting debounce
+    - reloading debounce
+
+2) Create a command that writes those stats onto the item the player holds in hand. 
+
+3) If a player switches to this item the plugin should detect this, read the stats and load them into memory and create a gun object that is tracled for every player with a gun item in hand
+
+4) Events:
+
+  1) If a player does a leftclick it should fire the gun.
+     - shoot a arrow in the direction the player is looking at with the damage of "damage"
+     - on every shot the gun should subtract 1 from the "current magazine load"
+     - after the event create a "shooting debounce" with the time of the "shooting speed"
+     - if the debounce is active the player can't trigger the event again 
+    
+
+  2) If the player does a rightclick the gun should reload
+     - on relaoad add a "reloading debounce" with the time of "reload time"
+     - after the debounce set the "current magazine load" to the "magazins size" 
+     - you can only do this if there is no debounce active
+
+5) If the player switches away from the gun item:
+  -update the "current magazine load", "shooting debounce" and "reloading debounce values" on the item 
+  -remove the gun object from memory
