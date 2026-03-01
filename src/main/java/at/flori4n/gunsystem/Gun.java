@@ -19,6 +19,8 @@ public class Gun {
     private long reloadingDebounce;
     private boolean useRaycast;
     private String particleType;
+    private boolean isReloading;
+    private boolean isShooting;
 
     public Gun(String name, int magazineSize, int currentMagazineLoad, long shootingSpeed, 
                long reloadTime, double damage, long shootingDebounce, long reloadingDebounce, 
@@ -103,14 +105,21 @@ public class Gun {
     public long getReloadingDebounce() { return reloadingDebounce; }
     public boolean isUseRaycast() { return useRaycast; }
     public String getParticleType() { return particleType; }
+    public boolean isReloading() { return isReloading; }
+    public boolean isShooting() { return isShooting; }
 
     public void setCurrentMagazineLoad(int load) { this.currentMagazineLoad = load; }
     public void setShootingDebounce(long debounce) { this.shootingDebounce = debounce; }
     public void setReloadingDebounce(long debounce) { this.reloadingDebounce = debounce; }
+    public void setReloading(boolean reloading) { this.isReloading = reloading; }
+    public void setShooting(boolean shooting) { this.isShooting = shooting; }
     
     public String getActionBarText() {
-        if (reloadingDebounce > 0) {
-            return "§c§lReloading..." + reloadingDebounce;
+        if (isReloading) {
+            return "§c§lReloading...";
+        }
+        if (isShooting) {
+            return "§eShooting...";
         }
         return "§a" + currentMagazineLoad + "§7/§f" + magazineSize;
     }

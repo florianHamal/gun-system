@@ -130,11 +130,11 @@ public class GunListener implements Listener {
     }
 
     private void shoot(Player player, Gun gun) {
-        if (gun.getShootingDebounce() > 0) {
+        if (gun.isShooting()) {
             player.sendMessage("§cTo fast");
             return;
         }
-        if (gun.getReloadingDebounce() > 0) {
+        if (gun.isReloading()) {
             player.sendMessage("§cStill reloading");
             return;
         }
@@ -146,6 +146,8 @@ public class GunListener implements Listener {
         
         gun.setCurrentMagazineLoad(gun.getCurrentMagazineLoad() - 1);
         
+        gun.setShooting(true);
+        gun.sendActionBar(player);
         if (gun.isUseRaycast()) {
             org.bukkit.Location start = player.getEyeLocation();
             org.bukkit.util.Vector direction = start.getDirection().normalize();
@@ -189,20 +191,24 @@ public class GunListener implements Listener {
             Arrow arrow = player.launchProjectile(Arrow.class);
             arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
             arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
-        gun.sendActionBar(player);
         }
         
         gun.setShootingDebounce(gun.getShootingSpeed());
         
         player.sendMessage("§aBang! Ammo: " + gun.getCurrentMagazineLoad() + "/" + gun.getMagazineSize());
+        
+        GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
+            gun.setShooting(false);
+            gun.sendActionBar(player);
+        }, gun.getShootingSpeed());
     }
 
     private void reload(Player player, Gun gun) {
-        if (gun.getShootingDebounce() > 0) {
-            player.sendMessage("§cTo fast" + gun.getShootingDebounce());
+        if (gun.isShooting()) {
+            player.sendMessage("§cTo fast");
             return;
         }
-        if (gun.getReloadingDebounce() > 0) {
+        if (gun.isReloading()) {
             player.sendMessage("§cStill reloading");
             return;
         }        
@@ -211,14 +217,15 @@ public class GunListener implements Listener {
             return;
         }
         
-        gun.setReloadingDebounce(gun.getReloadTime());
+        gun.setReloading(true);
         
         player.sendMessage("§eReloading...");
         gun.sendActionBar(player);
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setCurrentMagazineLoad(gun.getMagazineSize());
-            gun.setReloadingDebounce(0);
+            gun.setReloading(false);
             player.sendMessage("§aReloaded! Magazine full.");
+            gun.sendActionBar(player);
         }, gun.getReloadTime());
     }
 

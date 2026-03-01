@@ -67,19 +67,9 @@ public class GunSystem extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                
                 for (Map.Entry<UUID, Gun> entry : playerGuns.entrySet()) {
                     UUID playerId = entry.getKey();
                     Gun gun = entry.getValue();
-                    
-                    long remainingShooting = gun.getShootingDebounce() - 1;
-                    long remainingReloading = gun.getReloadingDebounce() - 1;
-                    
-                    if (remainingShooting < 0) remainingShooting = 0;
-                    if (remainingReloading < 0) remainingReloading = 0;
-               
-                    gun.setShootingDebounce(remainingShooting);
-                    gun.setReloadingDebounce(remainingReloading);
                     
                     Player player = getServer().getPlayer(playerId);
                     if (player != null) {
