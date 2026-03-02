@@ -77,9 +77,9 @@ public class Gun {
         long reloadTime = Long.parseLong(lore.get(2).replace("§7Reload Time: §f", ""));
         double damage = Double.parseDouble(lore.get(3).replace("§7Damage: §f", ""));
         
-        boolean useRaycast = Boolean.parseBoolean(lore.get(4).replace("§7UseRaycast: §f", ""));
-        String particleType = lore.get(5).replace("§7ParticleType: §f", "");
-        int currentMagazineLoad = Integer.parseInt(lore.get(lore.size() - 2).replace("§7Current Ammo: §f", ""));
+        boolean useRaycast = Boolean.parseBoolean(lore.get(4).replace("§kRaycast: ", ""));
+        String particleType = lore.get(5).replace("§kType: §f", "");
+        int currentMagazineLoad = Integer.parseInt(lore.get(lore.size() - 2).replace("§kAmmo: ", ""));
 
         Gun gun = new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
                       damage, useRaycast, particleType);
@@ -125,9 +125,9 @@ public class Gun {
         lore.add("§7Shooting Speed: §f" + gun.getShootingSpeed());
         lore.add("§7Reload Time: §f" + gun.getReloadTime());
         lore.add("§7Damage: §f" + gun.getDamage());
-        lore.add("§7UseRaycast: §f" + gun.isUseRaycast());
-        lore.add("§7ParticleType: §f" + gun.getParticleType());
-        lore.add("§7Current Ammo: §f" + gun.getCurrentMagazineLoad());
+        lore.add("§kRaycast: " + gun.isUseRaycast());
+        lore.add("§kType: " + gun.getParticleType());
+        lore.add("§kAmmo: " + gun.getCurrentMagazineLoad());
         lore.add("§kGUN_SYSTEM");
         meta.setLore(lore);
         item.setItemMeta(meta);
