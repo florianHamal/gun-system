@@ -151,13 +151,22 @@ public class GunListener implements Listener {
             org.bukkit.util.Vector direction = start.getDirection().normalize();
             double maxDistance = 300.0;
             
+            double blockHitDistance = maxDistance;
+            
             for (double d = 0; d < maxDistance; d += 0.5) {
                 org.bukkit.Location particleLoc = start.clone().add(direction.clone().multiply(d));
-                player.getWorld().playEffect(particleLoc, getParticle(gun.getParticleType()), 1);
+                org.bukkit.block.Block block = particleLoc.getBlock();
+                if (block.getType() != org.bukkit.Material.AIR && block.getType() != org.bukkit.Material.LONG_GRASS && block.getType() != org.bukkit.Material.RED_ROSE && block.getType() != org.bukkit.Material.YELLOW_FLOWER) {
+                    blockHitDistance = d;
+                    break;
+                }
+                if (gun.getParticleType() != null) {
+                    player.getWorld().playEffect(particleLoc, getParticle(gun.getParticleType()), 1);
+                }
             }
             
+            double entityHitDistance = blockHitDistance;
             org.bukkit.entity.LivingEntity closestHit = null;
-            double closestDistance = maxDistance;
             
             for (org.bukkit.entity.Entity entity : player.getWorld().getEntities()) {
                 if (entity == player) continue;
@@ -195,8 +204,8 @@ public class GunListener implements Listener {
                             direction.getX(), direction.getY(), direction.getZ(),
                             bbMinX, bbMinY, bbMinZ, bbMaxX, bbMaxY, bbMaxZ);
                     
-                    if (intersection != null && intersection[0] < closestDistance) {
-                        closestDistance = intersection[0];
+                    if (intersection != null && intersection[0] < entityHitDistance) {
+                        entityHitDistance = intersection[0];
                         closestHit = living;
                     }
                 } catch (Exception e) {
