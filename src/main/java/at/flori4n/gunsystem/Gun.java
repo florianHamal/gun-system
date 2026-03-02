@@ -78,7 +78,7 @@ public class Gun {
         double damage = Double.parseDouble(lore.get(3).replace("§7Damage: §f", ""));
         
         boolean useRaycast = Boolean.parseBoolean(lore.get(4).replace("§kRaycast: ", ""));
-        String particleType = lore.get(5).replace("§kType: §f", "");
+        String particleType = lore.get(5).replace("§kType: ", "");
         int currentMagazineLoad = Integer.parseInt(lore.get(lore.size() - 2).replace("§kAmmo: ", ""));
 
         Gun gun = new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
