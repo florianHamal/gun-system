@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.block.Action;
 import org.bukkit.entity.Player;
+import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Projectile;
@@ -211,7 +212,7 @@ public class GunListener implements Listener {
             arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
             arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
         }
-        
+        player.getLocation().getWorld().playSound(player.getLocation(), Sound.PISTON_RETRACT,2f,2f);
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setShooting(false);
             gun.sendActionBar(player);
@@ -288,7 +289,7 @@ public class GunListener implements Listener {
         try {
             return org.bukkit.Effect.valueOf(name);
         } catch (IllegalArgumentException e) {
-            return org.bukkit.Effect.FLAME;
+            return org.bukkit.Effect.COLOURED_DUST;
         }
     }
 }

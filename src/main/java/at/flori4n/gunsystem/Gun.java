@@ -19,6 +19,7 @@ public class Gun {
     private String particleType;
     private boolean isReloading;
     private boolean isShooting;
+    private boolean isLegacy;
 
     public Gun(String name, int magazineSize, int currentMagazineLoad, long shootingSpeed, 
                long reloadTime, double damage, boolean useRaycast, String particleType) {
@@ -30,6 +31,7 @@ public class Gun {
         this.damage = damage;
         this.useRaycast = useRaycast;
         this.particleType = particleType;
+        this.isLegacy = false;
     }
 
     public static boolean isGun(ItemStack item) {
@@ -41,10 +43,19 @@ public class Gun {
             return false;
         }
         List<String> lore = meta.getLore();
-        if (lore.size() < 6) {
+        if (lore.isEmpty()) {
             return false;
         }
-        return lore.get(lore.size() - 1).startsWith("§kGUN_SYSTEM");
+        String lastLine = lore.get(lore.size() - 1);
+        if (lastLine.startsWith("§kGUN_SYSTEM")) {
+            return true;
+        }
+        for (String line : lore) {
+            if (line.contains("at.flori4n_.GunSystemV2")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static Gun fromItem(ItemStack item) {
@@ -53,6 +64,12 @@ public class Gun {
         }
         ItemMeta meta = item.getItemMeta();
         List<String> lore = meta.getLore();
+        
+        String lastLine = lore.get(lore.size() - 1);
+        
+        if (!lastLine.startsWith("§kGUN_SYSTEM")) {
+            return parseLegacy(item, meta, lore);
+        }
         
         String name = meta.getDisplayName().replace("§f", "");
         int magazineSize = Integer.parseInt(lore.get(0).replace("§7Magazine Size: §f", ""));
@@ -64,8 +81,40 @@ public class Gun {
         String particleType = lore.get(5).replace("§7ParticleType: §f", "");
         int currentMagazineLoad = Integer.parseInt(lore.get(lore.size() - 2).replace("§7Current Ammo: §f", ""));
 
-        return new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
+        Gun gun = new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
                       damage, useRaycast, particleType);
+        gun.isLegacy = false;
+        return gun;
+    }
+
+    private static Gun parseLegacy(ItemStack item, ItemMeta meta, List<String> lore) {
+        String name = meta.getDisplayName();
+        
+        String[] ammoParts = lore.get(0).split("/");
+        int currentAmmo = Integer.parseInt(ammoParts[0].trim());
+        int magazineSize = Integer.parseInt(ammoParts[1].trim());
+        
+        double damage = 1.0;
+        long reloadTime = 20;
+        long shootingSpeed = 5;
+        String particleType = "FLAME";
+        
+        for (String line : lore) {
+            if (line.startsWith("Damage:")) {
+                damage = Double.parseDouble(line.replace("Damage:", "").trim());
+            } else if (line.startsWith("Reload_Time:")) {
+                reloadTime = Long.parseLong(line.replace("Reload_Time:", "").trim());
+            } else if (line.startsWith("Speed:")) {
+                shootingSpeed = Long.parseLong(line.replace("Speed:", "").trim());
+            } else if (line.startsWith("Effect:")) {
+                particleType = line.replace("Effect:", "").trim().toUpperCase();
+            }
+        }
+        
+        Gun gun = new Gun(name, magazineSize, currentAmmo, shootingSpeed, reloadTime, 
+                      damage, true, particleType);
+        gun.isLegacy = true;
+        return gun;
     }
 
     public static ItemStack toItem(ItemStack item, Gun gun) {
@@ -95,6 +144,7 @@ public class Gun {
     public String getParticleType() { return particleType; }
     public boolean isReloading() { return isReloading; }
     public boolean isShooting() { return isShooting; }
+    public boolean isLegacy() { return isLegacy; }
 
     public void setCurrentMagazineLoad(int load) { this.currentMagazineLoad = load; }
     public void setReloading(boolean reloading) { this.isReloading = reloading; }
@@ -105,7 +155,7 @@ public class Gun {
             return "§c§lReloading...";
         }
         if (isShooting) {
-            return "§eShooting...";
+             return "§c" + currentMagazineLoad + "/" + magazineSize;
         }
         return "§a" + currentMagazineLoad + "§7/§f" + magazineSize;
     }
