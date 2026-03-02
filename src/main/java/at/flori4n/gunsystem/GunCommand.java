@@ -31,8 +31,8 @@ public class GunCommand implements CommandExecutor {
             return true;
         }
 
-        if (args.length < 8) {
-            player.sendMessage("Usage: /creategun <name> <magazineSize> <shootingSpeed> <reloadTime> <damage> <shootingDebounce> <reloadingDebounce> <useRaycast> <particleType>");
+        if (args.length < 7) {
+            player.sendMessage("Usage: /creategun <name> <magazineSize> <shootingSpeed> <reloadTime> <damage> <useRaycast> <particleType>");
             player.sendMessage("Use /gunhelp for particle types list");
             return true;
         }
@@ -44,13 +44,11 @@ public class GunCommand implements CommandExecutor {
             long shootingSpeed = Long.parseLong(args[2]);
             long reloadTime = Long.parseLong(args[3]);
             double damage = Double.parseDouble(args[4]);
-            long shootingDebounceValue = Long.parseLong(args[5]);
-            long reloadingDebounceValue = Long.parseLong(args[6]);
-            boolean useRaycast = Boolean.parseBoolean(args[7]);
-            String particleType = args[8];
+            boolean useRaycast = Boolean.parseBoolean(args[5]);
+            String particleType = args[6];
 
             Gun gun = new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, 
-                            reloadTime, damage, shootingDebounceValue, reloadingDebounceValue, useRaycast, particleType);
+                            reloadTime, damage, useRaycast, particleType);
             
             Gun.toItem(item, gun);
             player.setItemInHand(item);

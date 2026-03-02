@@ -149,35 +149,57 @@ public class GunListener implements Listener {
             org.bukkit.Location start = player.getEyeLocation();
             org.bukkit.util.Vector direction = start.getDirection().normalize();
             double maxDistance = 300.0;
-            org.bukkit.entity.LivingEntity closestHit = null;
-            double closestDistance = maxDistance;
             
             for (double d = 0; d < maxDistance; d += 0.5) {
                 org.bukkit.Location particleLoc = start.clone().add(direction.clone().multiply(d));
                 player.getWorld().playEffect(particleLoc, getParticle(gun.getParticleType()), 1);
             }
             
+            org.bukkit.entity.LivingEntity closestHit = null;
+            double closestDistance = maxDistance;
+            
             for (org.bukkit.entity.Entity entity : player.getWorld().getEntities()) {
                 if (entity == player) continue;
                 if (!(entity instanceof org.bukkit.entity.LivingEntity)) continue;
                 
                 org.bukkit.entity.LivingEntity living = (org.bukkit.entity.LivingEntity) entity;
-                org.bukkit.Location entityLoc = living.getEyeLocation();
                 
-                double dx = entityLoc.getX() - start.getX();
-                double dy = entityLoc.getY() - start.getY();
-                double dz = entityLoc.getZ() - start.getZ();
-                org.bukkit.util.Vector toEntity = new org.bukkit.util.Vector(dx, dy, dz);
-                double dot = toEntity.dot(direction);
-                
-                if (dot <= 0) continue;
-                
-                org.bukkit.Location closestPoint = start.clone().add(direction.clone().multiply(dot));
-                double distance = closestPoint.distance(entityLoc);
-                
-                if (distance < 0.5 && dot < closestDistance) {
-                    closestDistance = dot;
-                    closestHit = living;
+                try {
+                    Object craftEntity = living.getClass().getMethod("getHandle").invoke(living);
+                    java.lang.reflect.Method getBoundingBoxMethod = craftEntity.getClass().getMethod("getBoundingBox");
+                    Object boundingBox = getBoundingBoxMethod.invoke(craftEntity);
+                    
+                    java.lang.reflect.Field minX = boundingBox.getClass().getField("a");
+                    java.lang.reflect.Field minY = boundingBox.getClass().getField("b");
+                    java.lang.reflect.Field minZ = boundingBox.getClass().getField("c");
+                    java.lang.reflect.Field maxX = boundingBox.getClass().getField("d");
+                    java.lang.reflect.Field maxY = boundingBox.getClass().getField("e");
+                    java.lang.reflect.Field maxZ = boundingBox.getClass().getField("f");
+                    
+                    minX.setAccessible(true);
+                    minY.setAccessible(true);
+                    minZ.setAccessible(true);
+                    maxX.setAccessible(true);
+                    maxY.setAccessible(true);
+                    maxZ.setAccessible(true);
+                    
+                    double bbMinX = (double) minX.get(boundingBox);
+                    double bbMinY = (double) minY.get(boundingBox);
+                    double bbMinZ = (double) minZ.get(boundingBox);
+                    double bbMaxX = (double) maxX.get(boundingBox);
+                    double bbMaxY = (double) maxY.get(boundingBox);
+                    double bbMaxZ = (double) maxZ.get(boundingBox);
+                    
+                    double[] intersection = rayIntersectsBox(start.getX(), start.getY(), start.getZ(),
+                            direction.getX(), direction.getY(), direction.getZ(),
+                            bbMinX, bbMinY, bbMinZ, bbMaxX, bbMaxY, bbMaxZ);
+                    
+                    if (intersection != null && intersection[0] < closestDistance) {
+                        closestDistance = intersection[0];
+                        closestHit = living;
+                    }
+                } catch (Exception e) {
+                    continue;
                 }
             }
             
@@ -189,8 +211,6 @@ public class GunListener implements Listener {
             arrow.setVelocity(player.getLocation().getDirection().multiply(2.0));
             arrow.setMetadata("gunDamage", new org.bukkit.metadata.FixedMetadataValue(GunSystem.getInstance(), gun.getDamage()));
         }
-        
-        gun.setShootingDebounce(gun.getShootingSpeed());
         
         GunSystem.getInstance().getServer().getScheduler().runTaskLater(GunSystem.getInstance(), () -> {
             gun.setShooting(false);
@@ -233,6 +253,34 @@ public class GunListener implements Listener {
                 }
             }
         }
+    }
+
+    private double[] rayIntersectsBox(double rayX, double rayY, double rayZ,
+                                      double dirX, double dirY, double dirZ,
+                                      double minX, double minY, double minZ,
+                                      double maxX, double maxY, double maxZ) {
+        double invDirX = 1.0 / dirX;
+        double invDirY = 1.0 / dirY;
+        double invDirZ = 1.0 / dirZ;
+        
+        double t1 = (minX - rayX) * invDirX;
+        double t2 = (maxX - rayX) * invDirX;
+        double t3 = (minY - rayY) * invDirY;
+        double t4 = (maxY - rayY) * invDirY;
+        double t5 = (minZ - rayZ) * invDirZ;
+        double t6 = (maxZ - rayZ) * invDirZ;
+        
+        double tmin = Math.max(Math.max(Math.min(t1, t2), Math.min(t3, t4)), Math.min(t5, t6));
+        double tmax = Math.min(Math.min(Math.max(t1, t2), Math.max(t3, t4)), Math.max(t5, t6));
+        
+        if (tmax < 0) return null;
+        if (tmin > tmax) return null;
+        
+        if (tmin < 0) {
+            return new double[]{tmax, (maxX + minX) / 2, (maxY + minY) / 2, (maxZ + minZ) / 2};
+        }
+        
+        return new double[]{tmin, 0, 0, 0};
     }
 
     private org.bukkit.Effect getParticle(String particleName) {

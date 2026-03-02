@@ -1,0 +1,1867 @@
+start: true
+spawn:
+  spawns:
+  - &id001
+    ==: org.bukkit.Location
+    world: world
+    x: 43.98808034515864
+    y: 63.0
+    z: 133.52221983272796
+    pitch: 20.21361
+    yaw: 318.34735
+  - &id002
+    ==: org.bukkit.Location
+    world: world
+    x: 21.460815535576174
+    y: 63.0
+    z: 177.8370766959606
+    pitch: 11.011334
+    yaw: 269.40875
+  - &id003
+    ==: org.bukkit.Location
+    world: world
+    x: 51.455250462213385
+    y: 63.0
+    z: 165.25728596388802
+    pitch: 11.494084
+    yaw: 340.70447
+  - &id004
+    ==: org.bukkit.Location
+    world: world
+    x: 65.88823774986487
+    y: 63.0
+    z: 192.2658329062629
+    pitch: 12.91214
+    yaw: 252.27167
+  - &id005
+    ==: org.bukkit.Location
+    world: world
+    x: 84.65894428624514
+    y: 63.0
+    z: 205.11445513061165
+    pitch: 16.924952
+    yaw: 258.42676
+  - &id006
+    ==: org.bukkit.Location
+    world: world
+    x: 103.87925175720432
+    y: 70.0
+    z: 231.53334486633963
+    pitch: 10.2268915
+    yaw: 161.06323
+  - &id007
+    ==: org.bukkit.Location
+    world: world
+    x: 99.16647577812337
+    y: 63.0
+    z: 174.47371267817775
+    pitch: 29.265028
+    yaw: 174.45892
+  - &id008
+    ==: org.bukkit.Location
+    world: world
+    x: 120.82745807321184
+    y: 66.0
+    z: 150.86471208950587
+    pitch: 31.015009
+    yaw: 94.80716
+  - &id009
+    ==: org.bukkit.Location
+    world: world
+    x: 105.40953995387154
+    y: 66.0
+    z: 150.92850585635745
+    pitch: 31.015009
+    yaw: 94.80716
+  - &id010
+    ==: org.bukkit.Location
+    world: world
+    x: 97.7607559854186
+    y: 63.0
+    z: 132.5093864946326
+    pitch: 23.502342
+    yaw: 131.767
+  - &id011
+    ==: org.bukkit.Location
+    world: world
+    x: 69.69862931405459
+    y: 63.0
+    z: 117.9244521640126
+    pitch: 10.076049
+    yaw: 332.4015
+  - &id012
+    ==: org.bukkit.Location
+    world: world
+    x: 76.40697301394584
+    y: 64.5
+    z: 133.42884930255877
+    pitch: 17.679268
+    yaw: 348.15112
+  - &id013
+    ==: org.bukkit.Location
+    world: world
+    x: 68.55596407143025
+    y: 65.0
+    z: 137.407133505613
+    pitch: 19.429207
+    yaw: 289.77594
+  - &id014
+    ==: org.bukkit.Location
+    world: world
+    x: 69.3267169951578
+    y: 65.0
+    z: 144.0222904087325
+    pitch: 23.321367
+    yaw: 356.63586
+  - &id015
+    ==: org.bukkit.Location
+    world: world
+    x: 73.4663222320251
+    y: 65.0
+    z: 151.2346359698706
+    pitch: 18.373243
+    yaw: 324.77502
+  - &id016
+    ==: org.bukkit.Location
+    world: world
+    x: 76.25930105410745
+    y: 65.0
+    z: 157.13443992896245
+    pitch: 23.985138
+    yaw: 333.10254
+  - &id017
+    ==: org.bukkit.Location
+    world: world
+    x: 75.42193355419695
+    y: 65.0
+    z: 144.7397253380124
+    pitch: 18.252577
+    yaw: 127.51346
+  - &id018
+    ==: org.bukkit.Location
+    world: world
+    x: 87.9542711498196
+    y: 66.0
+    z: 151.0409099384818
+    pitch: 16.231071
+    yaw: 282.92664
+  - &id019
+    ==: org.bukkit.Location
+    world: world
+    x: 69.57821724878548
+    y: 56.0
+    z: 150.36846158328873
+    pitch: 18.403423
+    yaw: 228.92603
+  - &id020
+    ==: org.bukkit.Location
+    world: world
+    x: 86.23393050887849
+    y: 56.0
+    z: 145.34869290289285
+    pitch: 17.649132
+    yaw: 12.45166
+  - &id021
+    ==: org.bukkit.Location
+    world: world
+    x: 86.20989424223085
+    y: 56.5
+    z: 152.7116225184377
+    pitch: 17.860332
+    yaw: 2.947754
+  - &id022
+    ==: org.bukkit.Location
+    world: world
+    x: 83.67195587171719
+    y: 56.0625
+    z: 141.7423518652188
+    pitch: 23.472214
+    yaw: 180.83801
+  - &id023
+    ==: org.bukkit.Location
+    world: world
+    x: 75.88275158587375
+    y: 56.0
+    z: 141.80541420732297
+    pitch: 17.045698
+    yaw: 165.51062
+  - &id024
+    ==: org.bukkit.Location
+    world: world
+    x: 75.32431054044012
+    y: 56.0
+    z: 133.99256807895907
+    pitch: 13.213914
+    yaw: 212.4574
+  - &id025
+    ==: org.bukkit.Location
+    world: world
+    x: 89.03621365378615
+    y: 56.0
+    z: 134.99661343701516
+    pitch: 20.304214
+    yaw: 309.27368
+  - &id026
+    ==: org.bukkit.Location
+    world: world
+    x: 59.18417597068927
+    y: 58.0
+    z: 147.78971419658671
+    pitch: 23.89459
+    yaw: 183.55188
+  - &id027
+    ==: org.bukkit.Location
+    world: world
+    x: 79.40461087233278
+    y: 72.0
+    z: 144.8157677027648
+    pitch: 10.52863
+    yaw: 181.30763
+  - &id028
+    ==: org.bukkit.Location
+    world: world
+    x: 91.37525494254596
+    y: 72.0
+    z: 136.52222467981156
+    pitch: 5.3693914
+    yaw: 324.83328
+  - &id029
+    ==: org.bukkit.Location
+    world: world
+    x: 73.6509559713744
+    y: 72.0
+    z: 135.30679032482345
+    pitch: 20.575817
+    yaw: 96.22991
+  - &id030
+    ==: org.bukkit.Location
+    world: world
+    x: 66.33549553761891
+    y: 72.0
+    z: 139.50951106546634
+    pitch: 14.813058
+    yaw: -148.70193
+  - &id031
+    ==: org.bukkit.Location
+    world: world
+    x: 76.56456725856876
+    y: 72.0
+    z: 158.12239607204256
+    pitch: 23.472256
+    yaw: -77.40685
+  - &id032
+    ==: org.bukkit.Location
+    world: world
+    x: 79.46570412084444
+    y: 72.0
+    z: 167.29232042953703
+    pitch: 19.700808
+    yaw: 3.4526677
+  - &id033
+    ==: org.bukkit.Location
+    world: world
+    x: 73.93637289899259
+    y: 72.0
+    z: 166.06431837869363
+    pitch: 15.175076
+    yaw: 77.7348
+  - &id034
+    ==: org.bukkit.Location
+    world: world
+    x: 96.16470339860157
+    y: 72.0
+    z: 150.96054813619577
+    pitch: 31.859928
+    yaw: 284.19785
+  - &id035
+    ==: org.bukkit.Location
+    world: world
+    x: 94.26468584723135
+    y: 65.0
+    z: 186.35482496913076
+    pitch: 28.510927
+    yaw: 109.088135
+  - &id036
+    ==: org.bukkit.Location
+    world: world
+    x: 82.96000873446393
+    y: 63.0
+    z: 194.1904019788803
+    pitch: 21.873215
+    yaw: 315.84717
+  - &id037
+    ==: org.bukkit.Location
+    world: world
+    x: 85.5902024787855
+    y: 64.0625
+    z: 173.38493510018176
+    pitch: 15.144977
+    yaw: 146.25885
+  - &id038
+    ==: org.bukkit.Location
+    world: world
+    x: 82.15147781802585
+    y: 66.5
+    z: 164.38197863678826
+    pitch: 24.045565
+    yaw: 94.394135
+  - &id039
+    ==: org.bukkit.Location
+    world: world
+    x: 74.70973234304446
+    y: 68.0
+    z: 171.80364396406102
+    pitch: 27.545448
+    yaw: 167.7956
+  - &id040
+    ==: org.bukkit.Location
+    world: world
+    x: 68.20844771489234
+    y: 65.0
+    z: 164.7970355842583
+    pitch: 21.360296
+    yaw: 240.75018
+spawns:
+  spawn0: *id001
+  spawn1: *id002
+  spawn2: *id003
+  spawn3: *id004
+  spawn4: *id005
+  spawn5: *id006
+  spawn6: *id007
+  spawn7: *id008
+  spawn8: *id009
+  spawn9: *id010
+  spawn10: *id011
+  spawn11: *id012
+  spawn12: *id013
+  spawn13: *id014
+  spawn14: *id015
+  spawn15: *id016
+  spawn16: *id017
+  spawn17: *id018
+  spawn18: *id019
+  spawn19: *id020
+  spawn20: *id021
+  spawn21: *id022
+  spawn22: *id023
+  spawn23: *id024
+  spawn24: *id025
+  spawn25: *id026
+  spawn26: *id027
+  spawn27: *id028
+  spawn28: *id029
+  spawn29: *id030
+  spawn30: *id031
+  spawn31: *id032
+  spawn32: *id033
+  spawn33: *id034
+  spawn34: *id035
+  spawn35: *id036
+  spawn36: *id037
+  spawn37: *id038
+  spawn38: *id039
+  spawn39: *id040
+kits:
+  kit0:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fE-11"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f2"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit1:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fCylerRifle"
+          lore:
+          - "\xa771/1"
+          - "\xa77Damage: \xa7f12"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f80"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f1"
+          - "\xa7kGUN_SYSTEM"
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit2:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fA280-CFE"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f5"
+          - "\xa77Shooting Speed: \xa7f3"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit3:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fEE-3"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f6"
+          - "\xa77Shooting Speed: \xa7f4"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit4:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDH-17"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f25"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit5:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fSE-14C"
+          lore:
+          - "\xa7725/25"
+          - "\xa77Damage: \xa7f3"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f20"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f25"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit6:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDL-44"
+          lore:
+          - "\xa7713/13"
+          - "\xa77Damage: \xa7f7"
+          - "\xa77Shooting Speed: \xa7f5"
+          - "\xa77Reload Time: \xa7f15"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f13"
+          - "\xa7kGUN_SYSTEM"
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_SWORD
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: LEATHER_HELMET
+  kit7:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fE-11"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f2"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit8:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fCylerRifle"
+          lore:
+          - "\xa771/1"
+          - "\xa77Damage: \xa7f12"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f80"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f1"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit9:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fA280-CFE"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f5"
+          - "\xa77Shooting Speed: \xa7f3"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit10:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fEE-3"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f6"
+          - "\xa77Shooting Speed: \xa7f4"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+          - at.flori4n_.GunSystemV2
+          - 'Effect: red'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit11:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDH-17"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f25"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit12:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fSE-14C"
+          lore:
+          - "\xa7725/25"
+          - "\xa77Damage: \xa7f3"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f20"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f25"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit13:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDL-44"
+          lore:
+          - "\xa7713/13"
+          - "\xa77Damage: \xa7f7"
+          - "\xa77Shooting Speed: \xa7f5"
+          - "\xa77Reload Time: \xa7f15"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f13"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit14:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fE-11"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f2"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+          - 'Status: -'
+          - at.flori4n_.GunSystemV2
+          - 'Effect: red'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit15:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fCylerRifle"
+          lore:
+          - "\xa771/1"
+          - "\xa77Damage: \xa7f12"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f80"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f1"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit16:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fA280-CFE"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f5"
+          - "\xa77Shooting Speed: \xa7f3"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+          - 'Effect: blue'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit17:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fEE-3"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f6"
+          - "\xa77Shooting Speed: \xa7f4"
+          - "\xa77Reload Time: \xa7f30"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+          - 'Effect: red'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit18:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_HOE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDH-17"
+          lore:
+          - "\xa7720/20"
+          - "\xa77Damage: \xa7f4"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f25"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fblue"
+          - "\xa77Current Ammo: \xa7f20"
+          - "\xa7kGUN_SYSTEM"
+          - 'Effect: blue'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit19:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOD_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fSE-14C"
+          lore:
+          - "\xa7725/25"
+          - "\xa77Damage: \xa7f3"
+          - "\xa77Shooting Speed: \xa7f1"
+          - "\xa77Reload Time: \xa7f20"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fgreen"
+          - "\xa77Current Ammo: \xa7f25"
+          - "\xa7kGUN_SYSTEM"
+          - 'Reload_Time: 20'
+          - 'Speed: 1'
+          - 'Timeout: 0'
+          - 'Status: -'
+          - at.flori4n_.GunSystemV2
+          - 'Effect: green'
+          - 'Projectile_Speed: 4'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit20:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1:
+        ==: org.bukkit.inventory.ItemStack
+        type: STONE_PICKAXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "\xa7fDL-44"
+          lore:
+          - "\xa7713/13"
+          - "\xa77Damage: \xa7f7"
+          - "\xa77Shooting Speed: \xa7f5"
+          - "\xa77Reload Time: \xa7f15"
+          - "\xa77UseRaycast: \xa7ftrue"
+          - "\xa77ParticleType: \xa7fred"
+          - "\xa77Current Ammo: \xa7f13"
+          - "\xa7kGUN_SYSTEM"
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+  kit21:
+    items:
+      item0:
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      item1: '-'
+      item2: '-'
+      item3: '-'
+      item4: '-'
+      item5: '-'
+      item6: '-'
+      item7: '-'
+      item8: '-'
+      item9: '-'
+      item10: '-'
+      item11: '-'
+      item12: '-'
+      item13: '-'
+      item14: '-'
+      item15: '-'
+      item16: '-'
+      item17: '-'
+      item18: '-'
+      item19: '-'
+      item20: '-'
+      item21: '-'
+      item22: '-'
+      item23: '-'
+      item24: '-'
+      item25: '-'
+      item26: '-'
+      item27: '-'
+      item28: '-'
+      item29: '-'
+      item30: '-'
+      item31: '-'
+      item32: '-'
+      item33: '-'
+      item34: '-'
+      item35: '-'
+    armor:
+      armor0:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_BOOTS
+      armor1:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_LEGGINGS
+      armor2:
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      armor3:
+        ==: org.bukkit.inventory.ItemStack
+        type: CHAINMAIL_HELMET
+
