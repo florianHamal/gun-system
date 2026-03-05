@@ -6,70 +6,93 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.block.Action;
 import org.bukkit.entity.Player;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 
 import java.util.UUID;
 
 public class GunListener implements Listener {
 
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        UUID playerId = player.getUniqueId();
-        
         ItemStack item = player.getItemInHand();
-        if (Gun.isGun(item) && GunSystem.getInstance().getPlayerGun(playerId) == null) {
-            Gun gun = Gun.fromItem(item);
-            GunSystem.getInstance().setPlayerGun(playerId, gun);
+        if (Gun.isGun(item)) {
+          GunSystem.getInstance().setPlayerGun(player.getUniqueId(),Gun.fromItem(item));
         }
     }
+    @EventHandler 
+    public void onPlayerQuit(PlayerQuitEvent event){
+       GunSystem.getInstance().removePlayerGun(event.getPlayer().getUniqueId());    
+    }
+    @EventHandler 
+    public void onPlayerKick(PlayerKickEvent event){
+       GunSystem.getInstance().removePlayerGun(event.getPlayer().getUniqueId());    
+    }
+
 
     @EventHandler
     public void onItemSwitch(PlayerItemHeldEvent event) {
         Player player = event.getPlayer();
-        UUID playerId = player.getUniqueId();
         int previousSlot = event.getPreviousSlot();
         int currentSlot = event.getNewSlot();
         
         ItemStack previousItem = player.getInventory().getItem(previousSlot);
         ItemStack currentItem = player.getInventory().getItem(currentSlot);
         
-        Gun previousGun = GunSystem.getInstance().getPlayerGun(playerId);
-        
-        if (previousGun != null && previousItem != null) {
+        Gun previousGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+
+        if (previousGun != null ){
+          if(Gun.isGun(previousItem) && previousGun.isEqual(Gun.fromItem(previousItem))){
             Gun.toItem(previousItem, previousGun);
             player.getInventory().setItem(previousSlot, previousItem);
-            GunSystem.getInstance().removePlayerGun(playerId);
+          }
+          GunSystem.getInstance().removePlayerGun(player.getUniqueId());
         }
-        
+          
         if (Gun.isGun(currentItem)) {
-            Gun gun = Gun.fromItem(currentItem);
-            GunSystem.getInstance().setPlayerGun(playerId, gun);
+          Gun newGun = Gun.fromItem(currentItem);
+          player.getInventory().setItem(currentSlot, Gun.toItem(currentItem, newGun));
+          GunSystem.getInstance().setPlayerGun(player.getUniqueId(),newGun);
         }
+
     }
 
     @EventHandler
     public void onDropItem(PlayerDropItemEvent event) {
         Player player = event.getPlayer();
-        UUID playerId = player.getUniqueId();
         ItemStack droppedItem = event.getItemDrop().getItemStack();
         
-        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
-        
-        if (gun != null && Gun.isGun(droppedItem)) {
-            Gun.toItem(droppedItem, gun);
+        Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+
+//ondrop reinit because if canceled = problems
+
+
+        if (loadedGun != null ){ // if item in hand?
+          if(Gun.isGun(droppedItem) && loadedGun.isEqual(Gun.fromItem(droppedItem))){
+            Gun.toItem(droppedItem, loadedGun);
             event.getItemDrop().setItemStack(droppedItem);
-            GunSystem.getInstance().removePlayerGun(playerId);
+            GunSystem.getInstance().removePlayerGun(player.getUniqueId());
+          }
         }
+
+
+
+
     }
 
     @EventHandler
@@ -79,62 +102,87 @@ public class GunListener implements Listener {
         }
         
         Player player = (Player) event.getWhoClicked();
-        UUID playerId = player.getUniqueId();
         
-        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
-        
-        if (gun != null) {
-            ItemStack item = player.getItemInHand();
-            if (item != null) {
-                Gun.toItem(item, gun);
-                player.setItemInHand(item);
-                GunSystem.getInstance().removePlayerGun(playerId);
-            }
+        ItemStack clickedItem = event.getCurrentItem();
+
+        Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+
+        if (loadedGun != null ){
+          if(Gun.isGun(clickedItem) && loadedGun.isEqual(Gun.fromItem(clickedItem))){
+            Gun.toItem(clickedItem, loadedGun);
+            event.setCurrentItem(clickedItem);
+          }
+          GunSystem.getInstance().removePlayerGun(player.getUniqueId());
         }
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
+        
         if (!(event.getPlayer() instanceof Player)) {
             return;
         }
-        
         Player player = (Player) event.getPlayer();
-        UUID playerId = player.getUniqueId();
-        
-        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
-        
-        if (gun == null) {
-            ItemStack item = player.getItemInHand();
-            if (Gun.isGun(item)) {
-                Gun newGun = Gun.fromItem(item);
-                GunSystem.getInstance().setPlayerGun(playerId, newGun);
-            }
+        ItemStack itemInHand = player.getItemInHand();
+
+        if(Gun.isGun(itemInHand)){
+          Gun gunInHand = Gun.fromItem(itemInHand);
+          Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+          if (loadedGun== null || (!loadedGun.isEqual(gunInHand))) {
+            player.setItemInHand(Gun.toItem(itemInHand, gunInHand));
+            GunSystem.getInstance().setPlayerGun(player.getUniqueId(), gunInHand);
+          }
+        }else {
+          //just fallback 
+          Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+          if (loadedGun!=null) GunSystem.getInstance().removePlayerGun(player.getUniqueId()); 
         }
+    }
+
+    @EventHandler
+    public void onPlayerPickupItem(PlayerPickupItemEvent event){
+      Player player = event.getPlayer();
+
+
+      ItemStack itemInHand = player.getItemInHand();
+
+      if(Gun.isGun(itemInHand)) {
+         Gun gunInHand = Gun.fromItem(itemInHand);
+         Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+         if (loadedGun== null || (!loadedGun.isEqual(gunInHand))) {
+           player.setItemInHand(Gun.toItem(itemInHand, gunInHand));
+           GunSystem.getInstance().setPlayerGun(player.getUniqueId(), gunInHand);
+         }
+      }else{
+        Gun loadedGun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
+        if (loadedGun!=null) GunSystem.getInstance().removePlayerGun(player.getUniqueId());       }
     }
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        UUID playerId = player.getUniqueId();
-        Gun gun = GunSystem.getInstance().getPlayerGun(playerId);
+        Gun gun = GunSystem.getInstance().getPlayerGun(player.getUniqueId());
         
         if (gun == null) {
             return;
         }
-        
+
         if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
             shoot(player, gun);
         } else if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            reload(player, gun);
+          //todo ignore chests 
+          reload(player, gun);
         }
     }
 
+
+
+    private boolean canUseGun(Gun gun) {
+        return !gun.isShooting() && !gun.isReloading();
+    }
+
     private void shoot(Player player, Gun gun) {
-        if (gun.isShooting()) {
-            return;
-        }
-        if (gun.isReloading()) {
+        if (!canUseGun(gun)) {
             return;
         }
         
@@ -229,12 +277,9 @@ public class GunListener implements Listener {
     }
 
     private void reload(Player player, Gun gun) {
-        if (gun.isShooting()) {
+        if (!canUseGun(gun)) {
             return;
         }
-        if (gun.isReloading()) {
-            return;
-        }        
         if (gun.getCurrentMagazineLoad() == gun.getMagazineSize()) {
             return;
         }

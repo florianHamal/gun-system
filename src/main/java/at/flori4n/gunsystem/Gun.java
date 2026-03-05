@@ -7,9 +7,11 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Gun {
     private String name;
+    private UUID uuid;
     private int magazineSize;
     private int currentMagazineLoad;
     private long shootingSpeed;
@@ -23,7 +25,14 @@ public class Gun {
 
     public Gun(String name, int magazineSize, int currentMagazineLoad, long shootingSpeed, 
                long reloadTime, double damage, boolean useRaycast, String particleType) {
+        this(name, UUID.randomUUID(), magazineSize, currentMagazineLoad, shootingSpeed, 
+             reloadTime, damage, useRaycast, particleType);
+    }
+
+    public Gun(String name, UUID uuid, int magazineSize, int currentMagazineLoad, long shootingSpeed, 
+               long reloadTime, double damage, boolean useRaycast, String particleType) {
         this.name = name;
+        this.uuid = uuid;
         this.magazineSize = magazineSize;
         this.currentMagazineLoad = currentMagazineLoad;
         this.shootingSpeed = shootingSpeed;
@@ -72,6 +81,7 @@ public class Gun {
         }
         
         String name = meta.getDisplayName().replace("§f", "");
+        UUID uuid = UUID.fromString(lore.get(6).replace("§kUUID: ", ""));
         int magazineSize = Integer.parseInt(lore.get(0).replace("§7Magazine Size: §f", ""));
         long shootingSpeed = Long.parseLong(lore.get(1).replace("§7Shooting Speed: §f", ""));
         long reloadTime = Long.parseLong(lore.get(2).replace("§7Reload Time: §f", ""));
@@ -81,7 +91,7 @@ public class Gun {
         String particleType = lore.get(5).replace("§kType: ", "");
         int currentMagazineLoad = Integer.parseInt(lore.get(lore.size() - 2).replace("§kAmmo: ", ""));
 
-        Gun gun = new Gun(name, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
+        Gun gun = new Gun(name, uuid, magazineSize, currentMagazineLoad, shootingSpeed, reloadTime, 
                       damage, useRaycast, particleType);
         gun.isLegacy = false;
         return gun;
@@ -111,7 +121,7 @@ public class Gun {
             }
         }
         
-        Gun gun = new Gun(name, magazineSize, currentAmmo, shootingSpeed, reloadTime, 
+        Gun gun = new Gun(name, UUID.randomUUID(), magazineSize, currentAmmo, shootingSpeed, reloadTime, 
                       damage, true, particleType);
         gun.isLegacy = true;
         return gun;
@@ -127,6 +137,7 @@ public class Gun {
         lore.add("§7Damage: §f" + gun.getDamage());
         lore.add("§kRaycast: " + gun.isUseRaycast());
         lore.add("§kType: " + gun.getParticleType());
+        lore.add("§kUUID: " + gun.getUuid().toString());
         lore.add("§kAmmo: " + gun.getCurrentMagazineLoad());
         lore.add("§kGUN_SYSTEM");
         meta.setLore(lore);
@@ -135,6 +146,7 @@ public class Gun {
     }
 
     public String getName() { return name; }
+    public UUID getUuid() { return uuid; }
     public int getMagazineSize() { return magazineSize; }
     public int getCurrentMagazineLoad() { return currentMagazineLoad; }
     public long getShootingSpeed() { return shootingSpeed; }
@@ -149,6 +161,10 @@ public class Gun {
     public void setCurrentMagazineLoad(int load) { this.currentMagazineLoad = load; }
     public void setReloading(boolean reloading) { this.isReloading = reloading; }
     public void setShooting(boolean shooting) { this.isShooting = shooting; }
+
+    public boolean isEqual(Gun other) {
+        return this.uuid.equals(other.uuid);
+    }
     
     public String getActionBarText() {
         if (isReloading) {
